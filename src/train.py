@@ -20,7 +20,7 @@ def load_data():
     return X_train, X_test, y_train, y_test
 
 
-def train_model(X_train, y_train, n_estimators=100, max_depth=None):
+def train_model(X_train, y_train, n_estimators=200, max_depth=None):
     model = RandomForestClassifier(
         n_estimators=n_estimators,
         max_depth=max_depth,
