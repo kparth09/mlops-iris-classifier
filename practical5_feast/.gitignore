@@ -1,0 +1,7 @@
+.venv-feast/
+__pycache__/
+*.pyc
+
+# Feast generated databases
+iris_feature_repo/feature_repo/data/registry.db
+iris_feature_repo/feature_repo/data/online_store.db
