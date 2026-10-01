@@ -10,7 +10,6 @@ data/*.csv
 data/*.parquet
 models/*.pkl
 models/*.joblib
-mlruns/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -21,3 +20,24 @@ mlruns/
 # IDE
 .vscode/
 .idea/
+# =========================================================
+# Feast
+# =========================================================
+**/.venv-feast/
+**/__pycache__/
+**/*.pyc
+**/data/*.parquet
+**/data/*.db
+
+# DVC cache / local remote should not be committed
+.dvc/cache/
+
+# =========================================================
+# MLflow
+# =========================================================
+mlruns/
+mlflow.db
+mlartifacts/
+confusion_matrix_*.png.venv-mlflow/
+.venv-mlflow/
+confusion_matrix_*.png
