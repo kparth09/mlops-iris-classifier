@@ -20,6 +20,24 @@ python src/train.py
 | 4 | DVC data pipeline | `dvc.yaml`, `docs/DATA_PIPELINE.md` |
 | 5 | MLflow tracking, tuning & model registry | `src/train_with_mlflow.py`, `src/baseline_model.py`, `src/register_best_model.py`, `src/load_registered_model.py` |
 | 6 | Feast feature store | `practical5_feast/iris_feature_repo/feature_repo/` |
+| 7 | Baseline model, Grid/Random Search tuning & comparison | `src/baseline_model.py`, `src/grid_search_tuning.py`, `src/random_search_tuning.py`, `src/compare_tuning_results.py`, `docs/HYPERPARAMETER_TUNING_ANALYSIS.md` |
+
+## Hyperparameter Tuning (Experiment 7)
+
+```bash
+source .venv-mlflow/Scripts/activate
+python src/baseline_model.py
+python src/grid_search_tuning.py
+python src/random_search_tuning.py
+python src/compare_tuning_results.py
+```
+
+Three runs are logged to the `iris-hyperparameter-tuning` MLflow experiment:
+`baseline_decision_tree` (DecisionTree, defaults), `grid_search_random_forest`
+(72 combinations x 5-fold CV = 360 fits) and `random_search_random_forest`
+(30 iterations x 5-fold CV = 150 fits). Every candidate's cross-validated
+score is logged as a CSV artifact. Findings are summarised in
+`docs/HYPERPARAMETER_TUNING_ANALYSIS.md`.
 
 ## DVC Pipeline
 
