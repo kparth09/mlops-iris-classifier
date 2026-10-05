@@ -85,13 +85,17 @@ print("Version:", model_version.version)
 
 
 # ---------------------------------------------------------
-# 5. Transition model to Staging
+# 5. Tag the model version with an alias
 # ---------------------------------------------------------
+# Model registry stages ("Staging"/"Production") are deprecated in
+# MLflow >= 2.9 and removed in a future major release. Aliases are
+# the supported replacement, and are resolved as
+# "models:/<name>@<alias>" rather than "models:/<name>/<stage>".
 
-client.transition_model_version_stage(
+client.set_registered_model_alias(
     name=registered_model_name,
+    alias="staging",
     version=model_version.version,
-    stage="Staging"
 )
 
-print("\nModel transitioned to Staging")
+print("\nModel tagged with alias 'staging'")

@@ -2,3 +2,10 @@ scikit-learn
 pandas
 numpy
 joblib
+matplotlib
+
+# Experiment 5 - MLflow
+mlflow
+
+# Experiment 3/4 - DVC
+dvc

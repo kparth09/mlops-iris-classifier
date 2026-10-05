@@ -17,8 +17,10 @@ mlflow.set_tracking_uri(
 # ---------------------------------------------------------
 # 2. Define registered model URI
 # ---------------------------------------------------------
+# Model registry stages are deprecated; the alias assigned in
+# register_best_model.py is resolved as "models:/<name>@<alias>".
 
-MODEL_URI = "models:/iris-classifier-prod/Staging"
+MODEL_URI = "models:/iris-classifier-prod@staging"
 
 print("=" * 60)
 print("LOADING REGISTERED MODEL")

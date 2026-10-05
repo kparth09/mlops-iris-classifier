@@ -32,3 +32,4 @@ Raw Data Source
       |
       v
 Validated Data
+```

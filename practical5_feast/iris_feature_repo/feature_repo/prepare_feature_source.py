@@ -1,20 +1,35 @@
 """
 Prepares the iris_features.csv from Experiment 4 into a Feast-ready
 Parquet source with entity IDs and event timestamps.
+
+Run from this directory (the Feast repo root):
+
+    python prepare_feature_source.py
 """
 
 import pandas as pd
 from pathlib import Path
 
+# Resolve relative to this file, not the current working directory,
+# so the script works regardless of where it is invoked from.
+feature_repo_dir = Path(__file__).resolve().parent
+
 # Input from Experiment 4
-input_file = Path(
-    "../../../data/processed/iris_features.csv"
+input_file = (
+    feature_repo_dir.parent.parent.parent
+    / "data"
+    / "processed"
+    / "iris_features.csv"
 )
 
 # Output for Feast
-output_file = Path(
-    "data/iris_features.parquet"
-)
+output_file = feature_repo_dir / "data" / "iris_features.parquet"
+
+if not input_file.exists():
+    raise FileNotFoundError(
+        f"Expected Experiment 4 output at {input_file}. "
+        "Run 'dvc repro' from the repository root first."
+    )
 
 # Read feature-engineered data
 df = pd.read_csv(input_file)

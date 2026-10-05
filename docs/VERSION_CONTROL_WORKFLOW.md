@@ -51,3 +51,29 @@ Examples:
 feat: add classification report to training script
 docs: update README title
 merge: resolve conflict in training script
+```
+
+## 4. Resolving Merge Conflicts
+
+When a merge reports a conflict, Git marks the file with
+`<<<<<<<`, `=======` and `>>>>>>>` markers showing both sides:
+
+```text
+<<<<<<< HEAD
+/iris_raw.csv
+=======
+>>>>>>> origin/main
+```
+
+Resolve it by editing the file to keep the intended content, then stage it:
+
+```bash
+git add <file>
+git commit
+```
+
+To abandon a merge entirely:
+
+```bash
+git merge --abort
+```
