@@ -41,3 +41,4 @@ mlartifacts/
 confusion_matrix_*.png.venv-mlflow/
 .venv-mlflow/
 confusion_matrix_*.png
+.coverage
